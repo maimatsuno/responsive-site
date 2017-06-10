@@ -1,0 +1,177 @@
+@import "compass";
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #f8f7f3;
+$subColor: #f6a9ce;
+$keyColor: #9e3668;
+$fontColor: #4c4c4c;
+
+
+.box {
+  background-image: url("../images/matsuno-responsive-webdesign.jpg");
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+// desktop
+@media (min-width: 769px) {
+
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+/* Header
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h2 {
+    @extend .abel;
+    font-size: 3.2rem;
+    @extend .uppercase;
+  }
+}
+
+// Skills
+#skills {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);    // スキルボックスを縦に並べる
+  }
+  h2 {
+    color: $baseColor;
+    margin-bottom: 60px;
+  }
+  .skill-box {
+    @include flex(1);
+    margin: 10px 0;                     // 上下にマージン
+    padding: 20px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+  i {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    background-color: $keyColor;
+    font-size: 4.5rem;
+    color: #FFF;
+    text-align: center;
+    @include box-sizing(border-box);
+    @include border-radius(50%);
+    @extend .block-center;
+  }
+  h3 {
+    @extend .abel;
+    @extend .uppercase;
+    color: $keyColor;
+    margin-bottom:10px;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+}
+
+// Contact
+#contact {
+.button {
+    display:inline-block;
+    margin: 20px auto 0;
+    width:200px;
+    font-size:24px;
+    font-weight:bold;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    padding:8px 0 10px;
+    color:$baseColor;
+    background-color:$keyColor;
+    border-radius:5px;
+  }
+}
+
+/* Footer
+------------------------------------------------------------*/
+footer {
+    background-color: $subColor;
+    padding: 10px 0;
+    text-align: center;
+    color: $baseColor;
+  }
+// desktop
+@media (min-width: 769px) {
+
+  // Skills
+  #skills {
+    .container {
+      @include flex-direction(row);     // スキルボックスを横に並べる
+      justify-content: space-between;
+    }
+    .skill-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }
+  .box{
+    height: 500px;
+    
+  }
+}
+ 
